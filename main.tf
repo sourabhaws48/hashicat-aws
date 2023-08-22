@@ -129,6 +129,8 @@ resource "aws_instance" "hashicat" {
   tags = {
     Name = "${var.prefix}-hashicat-instance"
     Billable="true"
+    Department="true"
+
   }
 }
 
@@ -197,4 +199,10 @@ locals {
 resource "aws_key_pair" "hashicat" {
   key_name   = local.private_key_filename
   public_key = tls_private_key.hashicat.public_key_openssh
+}
+
+resource "aws_s3_bucket" "s3-bucket" {
+  bucket = "gauravtest542311212"
+  acl    = "private"
+  tags   = var.tags
 }
