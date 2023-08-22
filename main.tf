@@ -204,5 +204,5 @@ resource "aws_key_pair" "hashicat" {
 resource "aws_s3_bucket" "s3-bucket" {
   bucket = "gauravtest542311212"
   acl    = "private"
-  tags   = var.tags
+ 
 }
